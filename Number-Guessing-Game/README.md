@@ -3,7 +3,7 @@
 ---
 
 Build a simple number guessing game to test your luck.\
-This challenge from [roadmap.sh](https://roadmap.sh) for project https://roadmap.sh/projects/number-guessing-game
+This challenge from [roadmap.sh](https://roadmap.sh) for project [Number Guessing Game](https://roadmap.sh/projects/number-guessing-game)
 
 ## How To Run
 
