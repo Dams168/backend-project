@@ -21,14 +21,13 @@ function playAgain() {
         }
     });
 }
-
 function randomNum() {
     return Math.floor(Math.random() * 100) + 1;
 }
 
-function easy() {
+function numberGuessingGame(chances) {
     const num = randomNum();
-    let maxAttempts = 10;
+    let maxAttempts = chances;
     let attempts = 0;
     function guessing() {
 
@@ -55,69 +54,6 @@ function easy() {
 
     guessing();
 }
-
-function medium() {
-    const num = randomNum();
-    let maxAttempts = 5;
-    let attempts = 0;
-    function guessing() {
-
-        rl.question('Enter your guess: ', (guess) => {
-            guess = parseInt(guess);
-            attempts++;
-            if (attempts < maxAttempts) {
-                if (guess < num) {
-                    console.log(`Incorrect! The number is greater than ${guess}.\n`);
-                    guessing();
-                } else if (guess > num) {
-                    console.log(`Incorrect! The number is less than ${guess}.\n`);
-                    guessing();
-                } else if (guess === num) {
-                    console.log(`Congratulations! You have guessed the correct number in ${attempts} attempts.`);
-                    playAgain();
-                }
-            } else {
-                console.log(`Sorry! You have exhausted all your attempts. The correct number is ${num}.`);
-                playAgain();
-            }
-        });
-    }
-
-    guessing();
-}
-
-function hard() {
-    const num = randomNum();
-    let maxAttempts = 3;
-    let attempts = 0;
-    function guessing() {
-
-        rl.question('Enter your guess: ', (guess) => {
-            guess = parseInt(guess);
-            attempts++;
-            if (attempts < maxAttempts) {
-                if (guess < num) {
-                    console.log(`Incorrect! The number is greater than ${guess}.\n`);
-                    guessing();
-                } else if (guess > num) {
-                    console.log(`Incorrect! The number is less than ${guess}.\n`);
-                    guessing();
-                } else if (guess === num) {
-                    console.log(`Congratulations! You have guessed the correct number in ${attempts} attempts.`);
-                    playAgain();
-                }
-            } else {
-                console.log(`Sorry! You have exhausted all your attempts. The correct number is ${num}.`);
-                playAgain();
-            }
-        });
-    }
-
-    guessing();
-
-}
-
-
 
 function difficulty() {
     const msg = `Please select the difficulty level: \n 1. Easy (10 chances)  \n 2. Medium (5 chances) \n 3. Hard (3 chances) \n`
@@ -127,15 +63,15 @@ function difficulty() {
         switch (choice) {
             case '1':
                 console.log(`\nGreat! You have selected the Easy difficulty level. \nLet's start the game!\n`);
-                easy();
+                numberGuessingGame(10);
                 break;
             case '2':
                 console.log(`\nGreat! You have selected the Medium difficulty level. \nLet's start the game!\n`);
-                medium();
+                numberGuessingGame(5);
                 break;
             case '3':
                 console.log(`\nGreat! You have selected the Hard difficulty level. \nLet's start the game!\n`);
-                hard();
+                numberGuessingGame(3);
                 break;
             default:
                 console.log('Invalid choice');

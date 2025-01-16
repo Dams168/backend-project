@@ -32,6 +32,6 @@ node index.js
 
 ## Upcoming Feature
 
-1. Play multiple rounds of the game
+1. Play multiple rounds of the game (DONE)
 2. Add a timer
 3. hint system
